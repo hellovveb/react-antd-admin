@@ -19,7 +19,7 @@ const MainContent = ({ location }) => {
 		<TransitionGroup>
 			<CSSTransition classNames="fade" key={location.pathname} timeout={500}>
 				<Content style={{ padding: '15px' }}>
-					<Switch>
+					<Switch location={location}>
 						{routes.map(ele => handleFilter(ele.permission) && <Route render={() => <ele.component />} key={ele.path} path={ele.path} />)}
 						<Redirect from="/" exact to="/dashboard" />
 						<Redirect to="/error/404" />
